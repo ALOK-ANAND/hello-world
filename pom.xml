@@ -70,13 +70,102 @@
 		</dependency>
 	</dependencies>
 
+	<!-- Distribution Management and Authentication In order to configure Maven 
+		to deploy to the OSSRH Nexus Repository Manager with the Nexus Staging Maven 
+		plugin you have to configure it like this <distributionManagement> <snapshotRepository> 
+		<id>ossrh</id> <url>https://oss.sonatype.org/content/repositories/snapshots</url> 
+		</snapshotRepository> </distributionManagement> <build> <plugins> <plugin> 
+		<groupId>org.sonatype.plugins</groupId> <artifactId>nexus-staging-maven-plugin</artifactId> 
+		<version>1.6.7</version> <extensions>true</extensions> <configuration> <serverId>ossrh</serverId> 
+		<nexusUrl>https://oss.sonatype.org/</nexusUrl> <autoReleaseAfterClose>true</autoReleaseAfterClose> 
+		</configuration> </plugin> ... </plugins> </build> -->
+
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>1.6.7</version>
+				<extensions>true</extensions>
+				<configuration>
+					<serverId>ossrh</serverId>
+					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+					<autoReleaseAfterClose>true</autoReleaseAfterClose>
+				</configuration>
+			</plugin>
+			<!-- Javadoc and Sources Attachments To get Javadoc and Source jar files 
+				generated, you have to configure the javadoc and source Maven plugins. -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.2.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9.1</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- GPG Signed Components The Maven GPG plugin is used to sign the components 
+				with the following configuration. -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.5</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- It relies on the gpg command being installed and the GPG credentials 
+				being available e.g. from settings.xml. In addition you can configure the 
+				gpg command in case it is different from gpg. This is a common scenario on 
+				some operating systems. <settings> <profiles> <profile> <id>ossrh</id> <activation> 
+				<activeByDefault>true</activeByDefault> </activation> <properties> <gpg.executable>gpg2</gpg.executable> 
+				<gpg.passphrase>the_pass_phrase</gpg.passphrase> </properties> </profile> 
+				</profiles> </settings> -->
 		</plugins>
 	</build>
+
+	<!-- Since OSSRH is always running the latest available version of Sonatype 
+		Nexus Repository Manager, it is best to use the latest version of the Nexus 
+		Staging Maven plugin. Alternatively if you are using the Maven deploy plugin, 
+		which is the default behavior, you need to add a full distributionManagement 
+		section. -->
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
 
 </project>

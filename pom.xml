@@ -1,22 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.3.1.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.kalokanand.github.hello</groupId>
+	<groupId>com.github.kalokanand</groupId>
 	<artifactId>hello-world</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>hello-world</name>
 	<description>Demo project for Spring Boot</description>
+	<url>https://github.com:kalokanand/hello-world.git</url>
 
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
+
+	<!-- License Information: You need to declare the license(s) used for distributing 
+		your components. -->
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>http://www.opensource.org/licenses/mit-license.php</url>
+		</license>
+	</licenses>
+
+	<!-- Developer Information: In order to be able to associate the project 
+		it is required to add a developers section. -->
+	<developers>
+		<developer>
+			<name>KUMAR ALOK ANAND</name>
+			<email>alok4java@gmail.com</email>
+			<organization>com.github.kalokanand</organization>
+			<organizationUrl>https://github.com:kalokanand/hello-world.git</organizationUrl>
+		</developer>
+	</developers>
+
+	<!-- SCM Information: The connection to your source control system is another 
+		required element. The syntax used depends on the version control system used. 
+		connection details the read only connection, while developerConnection details 
+		read and write access connection details. The url contains the URL for a 
+		web front end to your SCM system. -->
+	<scm>
+		<connection>scm:git:git://github.com/kalokanand/hello-world.git</connection>
+		<developerConnection>scm:git:ssh://github.com:kalokanand/hello-world.git</developerConnection>
+		<url>https://github.com:kalokanand/hello-world.git</url>
+	</scm>
 
 	<dependencies>
 		<dependency>

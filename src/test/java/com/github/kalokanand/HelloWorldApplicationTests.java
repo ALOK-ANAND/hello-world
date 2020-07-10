@@ -1,4 +1,4 @@
-package com.kalokanand.github.hello.helloworld;
+package com.github.kalokanand;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

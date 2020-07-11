@@ -14,7 +14,7 @@
 	<version>1.0.0</version>
 	<name>hello-world</name>
 	<description>Demo project for Spring Boot</description>
-	<url>https://github.com/kalokanand/hello-world.git</url>
+	<url>https://github.com/kalokanand/hello-world</url>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -36,7 +36,7 @@
 			<name>KUMAR ALOK ANAND</name>
 			<email>alok4java@gmail.com</email>
 			<organization>com.github.kalokanand</organization>
-			<organizationUrl>https://github.com/kalokanand/hello-world.git</organizationUrl>
+			<organizationUrl>https://github.com/kalokanand/</organizationUrl>
 		</developer>
 	</developers>
 
@@ -48,7 +48,7 @@
 	<scm>
 		<connection>scm:git:git://github.com/kalokanand/hello-world.git</connection>
 		<developerConnection>scm:git:ssh://github.com/kalokanand/hello-world.git</developerConnection>
-		<url>https://github.com/kalokanand/hello-world.git</url>
+		<url>https://github.com/kalokanand/hello-world</url>
 	</scm>
 
 	<dependencies>
@@ -149,6 +149,7 @@
 				<gpg.passphrase>the_pass_phrase</gpg.passphrase> </properties> </profile> 
 				</profiles> </settings> -->
 		</plugins>
+
 	</build>
 
 	<!-- Since OSSRH is always running the latest available version of Sonatype 
